@@ -7,6 +7,7 @@
 //
 
 #import "ESAppDelegate.h"
+#import "ESEntryController.h"
 
 @implementation ESAppDelegate
 
@@ -14,6 +15,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    NSMutableDictionary *dict = [@{@"name" : @"matt"} mutableCopy];
+    
+    [[ESEntryController sharedInstance] addEntry:dict];
+    
+    NSLog(@"%@", [ESEntryController sharedInstance].entries);
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
